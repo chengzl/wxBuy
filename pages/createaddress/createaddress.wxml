@@ -1,0 +1,26 @@
+<view class="address-info">
+<form bindsubmit="formSubmit">
+	<view class="address-content">
+		<view class="address-list">
+			<text class="address-title">收货人</text>
+			<input name="name" class="input-info" placeholder="姓名"/>
+		</view>
+		<view class="address-list">
+			<text class="address-title">联系方式</text>
+			<input type='number' name="phone" class="input-info" placeholder="手机号码"/>
+		</view>
+		<view class="address-list">
+			<text class="address-title">所在地</text>
+			<picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="select-city">
+    			<view class="picker">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+  			</picker>
+		</view>
+		<view>
+			<text class="address-title">详细地址</text>
+			<!-- <input name="address" class="input-info" placeholder="需填写楼栋楼层或房间号信息"/> -->
+      <textarea name="address" class="textarea-info">需填写楼栋楼层或房间号信息</textarea>
+		</view>
+    <button class='buy-product' form-type='submit'>确定</button>
+	</view>
+</form>
+</view>

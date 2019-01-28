@@ -1,0 +1,5 @@
+<view class="content">
+  <view style='margin:0.853333rem;'>
+    <image src="../resource/buy_rule.png"></image>
+  </view>
+</view>

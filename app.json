@@ -1,0 +1,45 @@
+{
+  "pages":[
+    
+    "pages/home/home",
+    "pages/index/index",
+    "pages/successorder/successorder",
+    "pages/logisticsinfo/logisticsinfo",
+    
+    "pages/prevdetail/prevdetail",
+    "pages/bidrecord/bidrecord",
+    "pages/buydetail/buydetail",
+    "pages/ordersubmit/ordersubmit",
+    "pages/createaddress/createaddress",
+    "pages/chooseaddres/chooseaddres",
+    "pages/updateaddress/updateaddress",
+    "pages/progressdetail/progressdetail",
+    "pages/buyrule/buyrule",
+    "pages/payresult/payresult",
+    "pages/detail/detail",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "拍拍乐",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "selectedColor": "#FF6261",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "pages/resource/sy_sy_mr.png",
+        "selectedIconPath": "pages/resource/sy_sy_dj.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的购买",
+        "iconPath": "pages/resource/sy_wd_mr.png",
+        "selectedIconPath": "pages/resource/sy_wd_dj.png"
+      }
+    ]
+  }
+}

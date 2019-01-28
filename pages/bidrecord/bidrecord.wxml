@@ -1,0 +1,20 @@
+<view class="product-info">
+  <view class="product-content">
+    <view class="record-list">
+      <view wx:for="{{price_record}}" wx:key="{{index}}" class="record {{item.flag==true ? 'price-success' : 'price-fail'}}">
+        <view class="left name">
+          <view class="left">
+            <image src="{{item.photo}}" class="user-photo"></image>
+          </view>
+          <view class="left user-name">{{item.name}}</view>
+        </view>
+        <view class="left time">{{item.time}}</view>
+
+        <view class="left money">
+          <text class="{{item.flag==true ? 'money-num' : 'money-num2'}}">￥{{item.money}}</text>
+        </view>
+        <image src="../resource/chengjiao.png" wx:if="{{item.flag}}" class="chengjiao"></image>
+      </view>
+    </view>
+  </view>
+</view>

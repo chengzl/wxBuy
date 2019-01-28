@@ -1,0 +1,71 @@
+page{
+	background:#f2f2f2;
+}
+
+.address-info{
+	float:left;
+	width:100%;
+	background:#fff;
+}
+
+.address-content{
+	padding:0 21rpx;
+}
+
+.address-list{
+	float:left;
+	width:100%;
+	height:100rpx;
+	border-bottom:1px solid #eee;
+}
+
+.address-title{
+	float:left;
+	width:22%;
+	color:#333;
+	font-size:32rpx;
+	line-height:100rpx;
+}
+
+.input-info{
+	float:left;
+	width:78%;
+	height:100rpx;
+	line-height:100rpx;
+	font-size:32rpx;
+	color:#999;
+}
+
+.textarea-info{
+  float:left;
+	width:78%;
+	height:180rpx;
+	line-height:60rpx;
+	font-size:32rpx;
+	color:#999;
+}
+
+.select-city{
+	display: flex; 
+	align-items:center;
+	float:left;
+	width:78%;
+	height:100rpx;
+	font-size:32rpx;
+	color:#999;
+}
+
+.buy-product{
+  float:left;
+  width:100%;
+  height:85rpx;
+  line-height:85rpx;
+  margin-top:130rpx;
+  margin-bottom:50rpx;
+  color:#fff;
+  letter-spacing: 3px;
+  text-align: center;
+  font-size:34rpx;
+  background:linear-gradient(to right, #f33f38 0%, #ff8561 100%);
+  border-radius: 5px;
+}

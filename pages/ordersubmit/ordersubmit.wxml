@@ -1,0 +1,71 @@
+<view class="address-view">
+	<view class="address-content" wx:if="{{showPoper=='display'}}" bindtap="chooseAddress">
+		<view class="address-info" bindtap="chooseAddress">
+			<view class="nick-name">{{consignee}}  {{mobile}}</view>
+			<view class="address">{{addr}}</view>
+		</view>
+		<view class="next-page"><image src="../resource/jiantou.png"></image></view>
+	</view>
+
+	<view class="address-content" wx:if="{{showPoper!='display'}}" bindtap="createAdress">
+		<view class="address-info2">
+			<view class="nick-name">请填写收货地址!</view>
+		</view>
+		<view class="next-page"><image src="../resource/jiantou.png"></image></view>
+	</view>
+</view>
+<image src="../resource/dz_xhx.png" class="address-line"></image>
+<view class="gray"></view>
+<view class="product-info">
+	<view class="product-content">
+		<view class="product-photo"><image src="{{goods.goods_thumb}}"></image></view>
+		<view class="product-type">
+			<view class="product-name">{{goods.goods_name}}</view>
+			<view class="product-attr">属性：黑色，4G+64G存储</view>
+			<view class="product-money">￥{{money}}</view>
+		</view>
+	</view>
+</view>
+
+<view class="product-remark">
+	<view class="remark-content">
+		<text class="remark-label">备注信息</text>
+		<input type="text" name="remark" class="input-remark" placeholder="选填，给平台留言" bindinput="inputRemark"/>
+	</view>
+</view>
+<view class="gray"></view>
+<view class="product-price">
+	<view class="price-content">
+		<view class="price-view">
+			<text class="price-font">商品金额</text>
+			<text class="buy-price">￥{{money}}</text>
+		</view>
+		<view class="freight">
+			<text class="freight-font">运费</text>
+			<text class="freight-money">+￥{{shipping_fee}}</text>
+		</view>
+		<view class="total-view">
+			<text class="total-money">+￥{{total_price}}</text>
+			<text class="total-font">总价：</text>
+		</view>
+	</view>
+</view>
+
+<view class="pay">
+	<view class="pay-content">
+		<view class="pay-button" bindtap='wxPay'>微信支付</view>
+	</view>
+</view>
+
+<view class="poper {{showPoper2}}">
+  <view class="poper-layer">
+    <view class="address-img"><image src="../resource/dz_tjdz.png"></image></view>
+    <view class="no-address">
+    	<view class="setting-address">你还没有可用配送地址，是否新建一个配送地址？</view>
+    </view>
+    <view class="buttons">
+    	<view class="cancel" bindtap="cancel">取消</view>
+    	<view class="create-address" bindtap="createAdress">新建</view>
+    </view>
+  </view>
+</view>

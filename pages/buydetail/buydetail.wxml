@@ -1,0 +1,92 @@
+<view class="swiper-scroll">
+  <scroll-view class = "scroll-content" scroll-y = "{{true}}" scroll-x = "{{flase}}">
+        <!--轮播图-->
+        <swiper autoplay = "{{true}}" indicator-dots = "{{true}}" 
+        interval="1000" duration="350" indicator-color="#abacb1" 
+        indicator-active-color="#a601fe" class = "scroll-image">
+            <swiper-item wx:for-items="{{carousel_list}}" wx:key="{{index}}">
+                <image src="{{item.img}}" class = "scroll-image-item" id = "{{index}}" bindtap = "scrollimageclick"></image>
+            </swiper-item>
+        </swiper>
+  </scroll-view>
+</view>
+<view class="product-info">
+  <view class="product-content">
+  	<text class="product-name">{{goods_name}}</text>
+  	<view class="product-type">
+  		<view class="product-attr">属性：{{goods_tags}}</view>
+  		<view class="right">
+  			<!-- <text class="price-font">京东价：</text> -->
+  			<text class="price-font">京东价：￥{{market_price}}</text>
+  		</view>
+  	</view>
+  	<view class="product-three">
+  		<view style="height:50rpx;line-height:50rpx;">
+  			<image src="../resource/dz_xz.png" class="gou"></image>
+  			<text class="content">本商品由京东商城提供，购买成功将由京东直接发货</text>
+  		</view>
+  		<view class="row">
+  			<view class="left">
+				<image src="../resource/dz_xz.png" class="gou"></image>
+  				<text class="content">支持7天无理由换货</text>
+  			</view>
+
+  			<view class="back-price">
+				<image src="../resource/dz_xz.png" class="gou"></image>
+  				<text class="content">极速退款</text>
+  			</view>
+  		</view>
+  	</view>
+  	<!-- <view class="price-record"> 
+  		<view class="price-title">出价记录</view>
+  		<view class="price-line"></view>
+
+  		<view class="record-list">
+  			<view  wx:for="{{price_record}}" wx:if="{{index < 6}}" wx:key="{{index}}" class = "record {{item.flag==true ? 'price-success' : 'price-fail'}}">
+  				<view class="left name">
+  					<view class="left"><image src="{{item.photo}}" class="user-photo"></image></view>
+  					<view class="left user-name">{{item.name}}</view>
+  				</view>
+  				<view class="left time">{{item.time}}</view>
+
+  				<view class="left money"><text class="{{item.flag==true ? 'money-num' : 'money-num2'}}">￥{{item.money}}</text></view>
+  				<image src="../resource/chengjiao.png" wx:if="{{item.flag}}" class="chengjiao"></image>
+  			</view>
+
+  			<view class="query-more" bindtap="bidRecord">查看更多》</view>
+  		</view>
+  	</view> -->
+
+  	<view class="price-detail">
+  		<view class="price-title">商品详情</view>
+  		<view class="price-line"></view>
+      <view class="product-detail" wx:for="{{goods_desc}}" wx:key="{{index}}">
+        <image src="{{item}}"></image>
+      </view>
+  	</view>
+    <view class="kong"></view>
+  </view>
+</view>
+
+<view class='buy-view'>
+  <view class='buy-rule' bindtap='buyRule'>
+    <image src="../resource/sy_wt.png" class='question'></image>
+    <text class="buy-font">购买须知</text>
+  </view>
+  <view class="buy-button" bindtap='buyProduct'>出价购买</view>
+</view>
+
+<view class="poper {{showPoper}}">
+  <view class="poper-layer">
+    <view class="close-view"><image src="../resource/close.png" class="close" bindtap="closeProp"></image></view>
+    <view class="buy-title">请出价</view>
+    <view class="buy-title2">请输入您想出的价格</view>
+    <view class="input">
+      <view class="icon-money">￥</view>
+      <input type="digit" name="money" class="input-money" placeholder="请输入金额" bindinput="inputMoney"/>
+    </view>
+    <view style="float:left;width:100%;">
+      <view class="money-button" bindtap="saveButton" data-goodsid="{{good_id}}" data-qushuid="{{qishu_id}}">确定</view>
+    </view>
+  </view>
+</view>

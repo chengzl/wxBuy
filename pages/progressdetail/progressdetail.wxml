@@ -1,0 +1,39 @@
+<view class="record">
+  	<view class="product-info">
+  		<view class="row">
+  			<view class="product-img">
+  				<image src="{{goods.goods_img}}"></image>
+  			</view>
+  			<view class="product-content">
+  				<view class="product-name">{{goods.goods_name}}</view>
+  				<view class="product-style">
+  					<view  wx:for-items="{{productType}}" wx:if="{{index == 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button">{{item}}</view>
+  					<view  wx:for-items="{{productType}}" wx:if="{{index > 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button left-long">{{item}}</view>
+  				</view>
+  				<view class="product-price">
+  					<text class="price-font">出价：</text>
+  					<text class="price">￥{{out_price}}</text>
+            <text class="jdmoney">京东价：￥{{goods.market_price}}</text>
+  				</view>
+          <view class="people-support">
+            <view class="support-bar"></view>
+            <view class="support-num">人气:200/1800</view>
+          </view>
+  				<view class="product-source2">
+  					<view class="source-font">
+  						<view class="img-type"><image src="../resource/sy_jiaobiao.png" class="type-img"></image></view>
+  						<!-- <view class="source">{{source}}</view> -->
+  					</view>
+  				</view>
+  			</view>
+  		</view>
+      <view class="invest-friends">
+        <button class="invest-button">邀请好友主力</button>
+      </view>
+  	</view>
+</view>
+
+<view class="time-show">
+  <text class="time">15:50:13s</text>
+  <text class="time-font">后公布结果</text>
+</view>

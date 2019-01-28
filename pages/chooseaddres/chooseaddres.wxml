@@ -1,0 +1,22 @@
+<radio-group class="radio-group" bindchange="radioChange">
+<view class="address-view" wx:for="{{address}}" wx:key="{{item.index}}">
+	<view class="address-content">
+    <view class='check-box'><radio value="{{item.value}}" checked="{{item.checked}}" class="define-checkbox"/></view>
+		<view class="address-info">
+			<view class="nick-name">{{item.name}}  {{item.phone}}</view>
+			<view class="address">{{item.address}}</view>
+		</view>
+		<view class="next-page"
+      data-addressid="{{item.value}}" 
+      data-consignee="{{item.name}}" 
+      data-mobile="{{item.phone}}" 
+      data-province="{{item.province}}" 
+      data-city="{{item.city}}" 
+      data-district="{{item.district}}" 
+      data-address="{{item.allAddress}}"
+      bindtap='updateAddres'>
+      <image src="../resource/dz_bj.png"></image>
+    </view>
+	</view>
+</view>
+</radio-group>

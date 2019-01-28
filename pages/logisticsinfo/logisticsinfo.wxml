@@ -1,0 +1,16 @@
+<view class="left">
+<view class="content">
+  <view class="order-info">
+    <text class="title marginTop">京东物流</text>
+    <text class="title marginTop">运单号：2584323328556321254</text>
+  </view>
+</view>
+</view>
+
+<view class="left">
+  <view class="detail">
+    <view class="order-info2">
+    dfdf
+    </view>
+  </view>
+</view>

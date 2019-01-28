@@ -1,0 +1,90 @@
+<view class="swiper-scroll">
+  <scroll-view class = "scroll-content" scroll-y = "{{true}}" scroll-x = "{{flase}}">
+        <!--轮播图-->
+        <swiper autoplay = "{{true}}" indicator-dots = "{{true}}" 
+        interval="1000" duration="350" indicator-color="#abacb1" 
+        indicator-active-color="#a601fe" class = "scroll-image">
+            <swiper-item wx:for-items="{{carousel_list}}" wx:key="{{index}}">
+                <image src="{{item.ad_thumb}}" class = "scroll-image-item" id = "{{index}}" bindtap = "scrollimageclick"></image>
+            </swiper-item>
+        </swiper>
+  </scroll-view>
+  
+  <view class="top-nav">
+    <view class="gu-type" bindtap="tapNow">
+      <view class="nav-title {{nav_now}}">
+        <text class="title-font {{now_title}}" wx:if="{{periodList[0].state==2}}">{{periodList[0].name}}</text>
+        <text class="title-font {{now_title}}" wx:else>{{periodList[1].name}}</text>
+        <text class="title-font2 {{now_title}}">本期推荐</text>
+      </view>
+    </view>
+    <view class="gu-type" bindtap="tapPrev" data-periodid="{{periodList[0].state==2?periodList[1].id:periodList[0].id}}">
+      <view class="nav-title {{nav_prev}}">
+        <text class="title-font {{now_title}}" wx:if="{{periodList[0].state==2}}">{{periodList[1].name}}</text>
+        <text class="title-font {{now_title}}" wx:else>{{periodList[0].name}}</text>
+        <text class="title-font2 {{prev_title}}">上期成交</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="now-list lists" style="{{now_display}}">
+  <view class="record">
+
+  	<view class="product-info" wx:for="{{now_data}}" wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}">
+  		<view class="row">
+  			<view class="product-img">
+  				<image src="{{items.img}}"></image>
+  			</view>
+  			<view class="product-content">
+  				<view class="product-name">{{items.productName}}</view>
+  				<view class="product-style">
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index == 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button">{{item}}</view>
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index > 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button left-long">{{item}}</view>
+  				</view>
+          <view class="jdmoney">京东价：￥{{items.jdmoney}}</view>
+  				<view class="product-source">
+  					<view class="source-font">
+  						<image src="../resource/sy_jiaobiao.png" class="img-type type-img"></image>
+  						<view class="source">{{items.source}}</view>
+  					</view>
+
+  					<view class="buy-button" bindtap="buyDetail" data-goodid="{{items.goodid}}" data-qishuid="{{items.qishuid}}">出价购买</view>
+  				</view>
+  			</view>
+  		</view>
+  	</view>
+
+  </view>
+</view>
+
+<view class="prev-list lists" style="{{prev_display}}">
+  <view class="record">
+
+  	<view class="product-info" wx:for="{{prev_data}}" wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}" bindtap="prevDetail" data-goodid="{{items.goodid}}" data-qishuid="{{items.qishuid}}">
+  		<view class="row">
+  			<view class="product-img">
+  				<image src="{{items.img}}"></image>
+  			</view>
+  			<view class="product-content">
+  				<view class="product-name">{{items.productName}}</view>
+  				<view class="product-style">
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index == 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button">{{item}}</view>
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index > 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button left-long">{{item}}</view>
+  				</view>
+  				<view class="product-price">
+  					<text class="price-font">成交价：</text>
+  					<text class="price">￥{{items.successPrice}}</text>
+  				</view>
+  				<view class="product-source2">
+  					<view class="source-font">
+  						<view class="img-type"><image src="../resource/sy_jiaobiao.png" class="type-img"></image></view>
+  						<view class="source">{{items.source}}</view>
+  					</view>
+  				</view>
+  			</view>
+  		</view>
+  	</view>
+
+  </view>
+</view>

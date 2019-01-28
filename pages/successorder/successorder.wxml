@@ -1,0 +1,136 @@
+<view class="send-state">
+  <view class="send-content">
+     <block wx:if="{{state=='replace'}}">
+      <view class="top-info">
+        <text class="state">换货中</text>
+        <text class="state-info">平台正在换货</text>
+      </view>
+      <image src="../resource/replace.png" class="state-img"></image>
+     </block>
+     <block wx:elif="{{state=='wait'}}">
+      <view class="top-info">
+        <text class="state">待发货</text>
+        <text class="state-info">商品待出库，请耐心等待</text>
+      </view>
+      <image src="../resource/wait.png" class="state-img"></image>
+     </block>
+     <block wx:elif="{{state=='send'}}">
+      <view class="top-info">
+        <text class="state">已发货</text>
+        <text class="state-info">商品已发货，请注意收货</text>
+      </view>
+      <image src="../resource/send.png" class="state-img"></image>
+     </block>
+     <block wx:else>
+      <view class="top-info">
+        <text class="state">已完成</text>
+        <text class="state-info">订单已完成</text>
+      </view>
+      <image src="../resource/finish.png" class="state-img"></image>
+     </block>
+  </view>
+</view>
+
+<view class="send-address-info" bindtap='sendInfo'>
+	<view class="address-content">
+		<view class="address-info" bindtap="chooseAddress">
+			<view class="arrive-address">深圳已发出，下一站 南山科技园</view>
+			<view class="arrive-time">2018.06.24 17:43:25</view>
+		</view>
+		<view class="next-page" bindtap="chooseAddress"><image src="../resource/jiantou.png"></image></view>
+	</view>
+</view>
+
+<view class="address-view">
+	<view class="address-content">
+		<view class="address-info" bindtap="chooseAddress">
+			<view class="nick-name">天下我最帅  15919877345</view>
+			<view class="address">深圳市南山区西丽丽兰苑4栋406</view>
+		</view>
+		<view class="next-page" bindtap="chooseAddress"><image src="../resource/jiantou.png"></image></view>
+	</view>
+</view>
+<image src="../resource/dz_xhx.png" class="address-line"></image>
+<view class="gray"></view>
+<view class="product-info">
+	<view class="product-content">
+		<view class="product-photo"><image src="../resource/product.png"></image></view>
+		<view class="product-type">
+			<view class="product-name">荣耀9i幻夜黑 移动联通电信4G全面屏手机 双卡双待...</view>
+			<view class="product-attr">属性：黑色，4G+64G存储</view>
+			<view class="product-money">￥12000</view>
+		</view>
+	</view>
+</view>
+
+<view class="product-remark">
+	<view class="remark-content">
+		<text class="remark-label">备注信息</text>
+		<input type="text" name="remark" class="input-remark" placeholder="选填，给平台留言"/>
+	</view>
+</view>
+<view class="gray"></view>
+<view class="product-price">
+	<view class="price-content">
+		<view class="price-view">
+			<text class="price-font">商品金额</text>
+			<text class="buy-price">￥12000</text>
+		</view>
+		<view class="freight">
+			<text class="freight-font">运费</text>
+			<text class="freight-money">+￥12</text>
+		</view>
+		<view class="total-view">
+			<text class="total-money">+￥12</text>
+			<text class="total-font">总价：</text>
+		</view>
+	</view>
+</view>
+
+<view class="gray"></view>
+
+<view class="product-price" wx:if="{{state=='replace'}}">
+	<view class="price-content">
+		<view class="price-view">
+			<text class="price-font">换货理由</text>
+			<text class="reple-font">7天无理由换货</text>
+		</view>
+		<view class="freight2">
+			<text class="freight-font">申请时间</text>
+			<text class="reple-font">2018.06.24 17:43:25</text>
+		</view>
+	</view>
+</view>
+
+
+<view class="product-price" wx:else>
+	<view class="price-content">
+		<view class="price-view2">
+			<text class="price-font">付款时间</text>
+			<text class="reple-font">2018.06.24 17:43:25</text>
+		</view>
+	</view>
+</view>
+
+<view class="gray2"></view>
+
+<view class="order-buttons" wx:if="{{state=='send' || state=='finish'}}">
+  <view class="right-button">
+    <button class="order-button" wx:if="{{state=='send'}}" bindtap='approveReplace'>申请换货</button>
+    <button class="order-button" wx:if="{{state=='send'}}" bindtap='queryLogistics'>查看物流</button>
+    <button class="order-button" wx:if="{{state=='finish'}}" bindtap='deleteOrder'>删除订单</button>
+  </view>
+</view>
+
+<view class="poper {{showPoper}}">
+  <view class="poper-layer">
+    <view class="address-img">换货理由</view>
+    <view class="no-address">
+    	<view class="setting-address">你还没有可用配送地址，是否新建一个配送地址？</view>
+    </view>
+    <view class="buttons">
+    	<view class="cancel" bindtap="cancel">取消</view>
+    	<view class="create-address" bindtap="createAdress">提交</view>
+    </view>
+  </view>
+</view>

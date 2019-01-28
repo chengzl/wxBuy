@@ -1,0 +1,54 @@
+.address-view{
+	float:left;
+	width:100%;
+	height:136rpx;
+  border-bottom:1px solid #eee;
+}
+
+.address-content{
+	padding:0 21rpx;
+}
+
+.address-info{
+	float:left;
+	margin-top:15rpx;
+	display:flex;
+	flex-flow: column;
+}
+
+.address-info2{
+	float:left;
+	line-height:136rpx
+}
+
+.nick-name{
+	font-size:32rpx;
+	color:#000;
+}
+
+.address{
+	margin-top:15rpx;
+	font-size:28rpx;
+	color:#333;
+}
+
+.next-page{
+	float:right;
+}
+
+.next-page image{
+	width:32rpx;
+  height:42rpx;
+	margin-top:47rpx;
+}
+
+.address-line{
+	float:left;
+	width:100%;
+	height:12rpx;
+}
+
+.check-box{
+  float:left;
+  line-height:120rpx;
+}

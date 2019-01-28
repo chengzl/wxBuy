@@ -1,0 +1,151 @@
+<view class="photo-container">
+  <view class="userinfo">
+  <view style="float:left;width:100%;">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="gray-radius">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+
+      <view style="position:absoulte;float:right;margin-right:1.28rem;" bindtap='addressManager'>
+        <text class="home-address">收货地址管理</text>
+        <image src="../resource/jiantou.png" class="jiantou"></image>
+      </view>
+    </block>
+    </view>
+  </view>
+</view>
+<view class="swiper-scroll">
+  <view class="top-nav">
+    <view class="gu-type" bindtap="tapProgress">
+      <view class="nav-title {{nav_progress}}">
+        <text class="title-font {{buy_progress}}">购买中</text>
+      </view>
+    </view>
+    <view class="gu-type" bindtap="tapSuccess">
+      <view class="nav-title2 {{nav_success}}">
+        <text class="title-font {{buy_success}}">购买成功</text>
+      </view>
+    </view>
+    <view class="gu-type" bindtap="tapFail">
+      <view class="nav-title2 {{nav_fail}}">
+        <text class="title-font {{buy_fail}}">购买失败</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="prev-list lists" style="{{progress_display}}">
+  <view class="record">
+
+  	<view class="product-info" wx:for="{{progress_data}}" wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}">
+  		<view class="row" bindtap='progressDeail' data-goodid="{{items.goodid}}" data-qishuid="{{items.qishuid}}">
+  			<view class="product-img">
+  				<image src="{{items.img}}"></image>
+  			</view>
+  			<view class="product-content">
+  				<view class="product-name">{{items.productName}}</view>
+  				<view class="product-style">
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index == 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button">{{item}}</view>
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index > 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button left-long">{{item}}</view>
+  				</view>
+  				<view class="product-price">
+  					<text class="price-font">出价：</text>
+  					<text class="price">￥{{items.successPrice}}</text>
+  				</view>
+          <view class="people-support">
+            <view class="support-bar"></view>
+            <view class="support-num">人气:200/1800</view>
+          </view>
+  				<view class="product-source2">
+  					<view class="source-font">
+  						<view class="img-type"><image src="../resource/sy_jiaobiao.png" class="type-img"></image></view>
+  						<view class="source">{{items.source}}</view>
+  					</view>
+  				</view>
+  			</view>
+  		</view>
+      <view class="result-time">
+        您可于 <text style='color:#6977b6;'>{{countDownList[indexs]}}</text> 后查看本商品成交结果
+      </view>
+  	</view>
+
+  </view>
+</view>
+
+<view class="prev-list lists" style="{{success_display}}">
+  <view class="record">
+
+  	<view class="product-info" wx:for="{{success_data}}" wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}">
+  		<view class="row" bindtap='successDeail' data-goodid="{{items.goodid}}" data-qishuid="{{items.qishuid}}">
+  			<view class="product-img">
+  				<image src="{{items.img}}"></image>
+  			</view>
+  			<view class="product-content">
+  				<view class="product-name">{{items.productName}}</view>
+  				<view class="product-style">
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index == 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button">{{item}}</view>
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index > 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button left-long">{{item}}</view>
+  				</view>
+  				<view class="product-price">
+  					<text class="price-font">出价：</text>
+  					<text class="price">￥{{items.successPrice}}</text>
+  				</view>
+          <view class="people-support">
+            <view class="support-bar"></view>
+            <view class="support-num">人气:200/1800</view>
+          </view>
+  				<view class="product-source2">
+  					<view class="source-font">
+  						<view class="img-type"><image src="../resource/sy_jiaobiao.png" class="type-img"></image></view>
+  						<view class="source">{{items.source}}</view>
+  					</view>
+  				</view>
+  			</view>
+  		</view>
+      <view class="result-time2">商品待发货</view>
+  	</view>
+
+  </view>
+</view>
+
+<view class="prev-list lists" style="{{fail_display}}">
+  <view class="record">
+
+  	<view class="product-info" wx:for="{{fail_data}}" wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}">
+  		<view class="row" bindtap='failDeail' data-goodid="{{items.goodid}}" data-qishuid="{{items.qishuid}}">
+  			<view class="product-img">
+  				<image src="{{items.img}}"></image>
+  			</view>
+  			<view class="product-content">
+  				<view class="product-name">{{items.productName}}</view>
+  				<view class="product-style">
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index == 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button">{{item}}</view>
+  					<view  wx:for-items="{{items.productType}}" wx:if="{{index > 0}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class = "product-button left-long">{{item}}</view>
+  				</view>
+  				<view class="product-price">
+  					<text class="price-font">出价：</text>
+  					<text class="price">￥{{items.successPrice}}</text>
+  				</view>
+          <view class="people-support">
+            <view class="support-bar"></view>
+            <view class="support-num">人气:200/1800</view>
+          </view>
+  				<view class="product-source2">
+  					<view class="source-font">
+  						<view class="img-type"><image src="../resource/sy_jiaobiao.png" class="type-img"></image></view>
+  						<view class="source">{{items.source}}</view>
+  					</view>
+  				</view>
+  			</view>
+  		</view>
+      <view class="result-time3">
+        您的出价太低了，很遗憾错过此商品。出价金额将在
+        <text style='color:#6977b6;'>1-3个工作日</text>内退款至原支付渠道
+      </view>
+  	</view>
+
+  </view>
+</view>
